@@ -13,8 +13,13 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
-
-
+callBinding = (magicAnimals, updateAnimals, id) => {
+  for (let i = 0; i < magicAnimals.length; i++) {
+    if (i === id) {
+      return updateAnimals(Trogdor);
+    }
+  }
+};
 
 // *************
 // * PROBLEM 2 *
@@ -28,8 +33,6 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
-
-
 
 // *************
 // * PROBLEM 3 *
@@ -48,8 +51,6 @@
 var foo;
 
 // CODE HERE...
-
-
 
 // *************
 // * PROBLEM 4 *

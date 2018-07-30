@@ -114,6 +114,15 @@ mustang.drive();
 
 // CODE HERE...
 
+String.prototype.grammarPolice = function() {
+  return this.split(" ")
+    .map(word => word[0].toUpperCase() + word.toLowerCase().slice(1))
+    .join(" ");
+};
+
+// var sent = "Hi my name is Tom";
+// console.log(sent);
+// console.log(sent.split(" "));
 // *************
 // * PROBLEM 4 *
 // *************
