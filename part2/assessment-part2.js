@@ -79,6 +79,7 @@ function large() {
   return "My name is " + this.name + " and I am very heavy!";
 }
 // CODE HERE...
+var boundToElephant = large.bind(elephant);
 
 // *************
 // * PROBLEM 3 *
@@ -91,7 +92,9 @@ function large() {
 // and return the bound function.
 
 // CODE HERE...
-deathStar = (capacity, crew) => {};
+deathStar = (capacity, crew) => {
+  return capacity.bind(crew);
+};
 
 // *************
 // * PROBLEM 4 *
@@ -133,10 +136,12 @@ accountingOffice = assets => {
 
 // CODE HERE...
 forgetter = name => {
+  let arr = [];
   return function rememberall(item) {
+    arr.push(item);
     return {
       name: name,
-      remember: [items]
+      remember: arr
     };
   };
 };
