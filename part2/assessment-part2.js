@@ -38,11 +38,21 @@ var firstUser = "don't touch this string!";
 var thirdUser = "don't touch this string, either!";
 
 function noWeakLink() {
-  return $http({
-    method: "GET",
-    url: "/api/users"
-  });
-  // CODE HERE...
+  return (
+    $http({
+      method: "GET",
+      url: "/api/users"
+    })
+      // CODE HERE...
+      .then(response => {
+        firstUser = response.data[0];
+        return response;
+      })
+      .then(response => {
+        thirdUser = response.data[2];
+        return response.data[9];
+      })
+  );
 }
 
 // *************
@@ -160,7 +170,7 @@ frodo = (startingHungerValue, startingDangerValue) => {
   let hunger = startingHungerValue;
   let danger = startingDangerValue;
 
-  function checkValue(num) {
+  function test(num) {
     if (num < 0) {
       return 0;
     } else if (num > 100) {
@@ -175,16 +185,16 @@ frodo = (startingHungerValue, startingDangerValue) => {
       hunger -= 25;
       danger += 40;
       return {
-        hunger: checkValue(hunger),
-        danger: checkValue(danger)
+        hunger: test(hunger),
+        danger: test(danger)
       };
     },
     hidingInBush: function() {
       hunger += 35;
       danger -= 20;
       return {
-        hunger: checkValue(hunger),
-        danger: checkValue(danger)
+        hunger: test(hunger),
+        danger: test(danger)
       };
     }
   };
